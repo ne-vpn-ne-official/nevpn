@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NE VPN - Fast, Private, and Secure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* အခြေခံ အရောင်များ သတ်မှတ်ခြင်း */
+        :root {
+            --neon-green: #5bf8a2;
+            --text-white: #fdfdfd;
+            --text-gray: #a0a4b8;
+            --bg-dark: #0a0e17;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            text-align: center;
+            overflow-x: hidden;
+            /* ဆန်းသစ်သော အလင်းရောင် နောက်ခံ (Modern Glowing Background) */
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(91, 248, 162, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(26, 100, 255, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        header {
+            padding: 60px 20px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            object-fit: cover;
+            /* ပုံမထည့်ရသေးခင် အကျည်းတန်မနေအောင် */
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* "NOW AVAILABLE" ခလုတ်လေး */
+        .status-badge {
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 10px rgba(91, 248, 162, 0.2);
+        }
+
+        .status-badge .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 8px var(--neon-green);
+        }
+
+        /* NE VPN ခေါင်းစဉ် ဒီဇိုင်း */
+        h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        h1 .ne-text {
+            color: #ffffe0; /* အဖြူရောင်ဖျော့ဖျော့ (Cream White) */
+        }
+
+        h1 .vpn-text {
+            color: var(--neon-green);
+            /* မီးလင်းနေသော Effect (Neon Glow) */
+            text-shadow: 0 0 20px rgba(91, 248, 162, 0.5), 0 0 40px rgba(91, 248, 162, 0.2);
+        }
+
+        p.subtitle {
+            font-size: 1.1em;
+            color: var(--text-gray);
+            max-width: 600px;
+            line-height: 1.6;
+            margin: 0 auto 40px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            background-color: var(--neon-green);
+            color: #050505;
+            padding: 16px 45px;
+            font-size: 1.1em;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(91, 248, 162, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(91, 248, 162, 0.5);
+            background-color: #4ade80;
+        }
+
+        /* Glassmorphism Feature Boxes */
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+        }
+
+        .feature-box {
+            /* မှန်လို ကြည်လင်နေသော Effect */
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px 25px;
+            border-radius: 20px;
+            width: 320px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(91, 248, 162, 0.3);
+        }
+
+        .feature-box h3 {
+            color: var(--text-white);
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-box p {
+            color: var(--text-gray);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        footer {
+            padding: 30px;
+            color: #565a70;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 20px;
+        }
+
+        /* ဖုန်းများအတွက် ပြင်ဆင်ချက် */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.8em; }
+            .feature-box { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="NE VPN Logo" class="logo" onerror="this.style.display='none'"> 
+        
+        <div class="status-badge"><span class="dot"></span> NOW AVAILABLE</div>
+        
+        <h1><span class="ne-text">NE</span> <span class="vpn-text">VPN</span></h1>
+        
+        <p class="subtitle">Fast, private, and secure connection. Protect your internet on any network.</p>
+        
+        <a href="NE_VPN_v1.0.apk" class="download-btn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Download for Android
+        </a>
+        <p style="margin-top: 15px; font-size: 0.85em; color: var(--text-gray);">Version 1.0 | Requires Android 7.0+</p>
+    </header>
+
+    <section class="features">
+        <div class="feature-box">
+            <h3>🌍 All Servers in One</h3>
+            <p>SG, JP အစရှိတဲ့ နိုင်ငံစုံ Server များကို App တစ်ခုတည်းမှာ လွတ်လပ်စွာ ရွေးချယ်အသုံးပြုနိုင်ပါတယ်။</p>
+        </div>
+        <div class="feature-box">
+            <h3>⚡ High Speed & Stable</h3>
+            <p>V2Ray, Outline ကဲ့သို့သော အဆင့်မြင့် Protocol များ ပါဝင်လို့ လိုင်းဆွဲအား အထူးကောင်းမွန်ပါတယ်။</p>
+        </div>
+        <div class="feature-box">
+            <h3>🔒 Total Privacy</h3>
+            <p>သင့်ရဲ့ အချက်အလက်များကို လုံခြုံစွာ ကာကွယ်ပေးထားပြီး လွတ်လပ်စွာ အင်တာနက် အသုံးပြုနိုင်ပါတယ်။</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 NE VPN. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
